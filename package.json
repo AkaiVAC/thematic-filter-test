@@ -19,8 +19,6 @@
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.1.18",
-    "@mdi/js": "^6.6.96",
-    "@mdi/react": "^1.6.0",
     "bootstrap": "^5.1.3",
     "cors": "^2.8.5",
     "express": "^4.16.4",
