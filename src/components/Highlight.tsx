@@ -4,6 +4,7 @@ import "highlight.js/styles/monokai-sublime.css";
 
 interface HighlightProps {
   language?: string;
+  children: string;
 }
 
 interface HighlightState {

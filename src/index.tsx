@@ -1,10 +1,11 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { Auth0Provider } from "@auth0/auth0-react";
 import config from "./auth_config.json";
 import history from "./utils/history";
+import { BrowserRouter } from "react-router-dom";
 
 const onRedirectCallback = (appState: any) => {
   history.push(
@@ -14,7 +15,7 @@ const onRedirectCallback = (appState: any) => {
   );
 };
 
-ReactDOM.render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <Auth0Provider
     domain={config.domain}
     clientId={config.clientId}
@@ -22,7 +23,8 @@ ReactDOM.render(
     redirectUri={window.location.origin}
     onRedirectCallback={onRedirectCallback}
   >
-    <App />
+    <BrowserRouter>
+          <App />
+    </BrowserRouter>
   </Auth0Provider>,
-  document.getElementById("root")
-);
+)
