@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { NavLink as RouterNavLink } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { Component } from 'react';
+import { NavLink as RouterNavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import {
   Collapse,
@@ -16,9 +16,9 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-} from "reactstrap";
+} from 'reactstrap';
 
-import { Auth0ContextInterface, withAuth0 } from "@auth0/auth0-react";
+import { Auth0ContextInterface, withAuth0 } from '@auth0/auth0-react';
 
 interface NavBarProps {
   auth0: Auth0ContextInterface;
@@ -30,96 +30,94 @@ interface NavBarState {
 
 class NavBar extends Component<NavBarProps, NavBarState> {
   state = {
-    isOpen: false
+    isOpen: false,
   };
 
   toggle = () => {
     const { isOpen } = this.state;
     this.setState({ isOpen: !isOpen });
-  }
-  
+  };
+
   logoutWithRedirect = () => {
     const { logout } = this.props.auth0;
-  
+
     logout({
       returnTo: window.location.origin,
     });
-  }
+  };
 
-  render () {
+  render() {
     const { isOpen } = this.state;
     const { user, isAuthenticated, loginWithRedirect } = this.props.auth0;
 
     return (
-      <div className="nav-container">
-        <Navbar color="light" light expand="md">
+      <div className='nav-container'>
+        <Navbar color='light' light expand='md'>
           <Container>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={isOpen} navbar>
-            <NavbarBrand className="logo" />
+              <NavbarBrand className='logo' />
 
-              <Nav className="mr-auto" navbar>
+              <Nav className='mr-auto' navbar>
                 <NavItem>
-                  <NavLink
-                    tag={RouterNavLink}
-                    to="/"
-                  >
+                  <NavLink tag={RouterNavLink} to='/'>
                     Home
                   </NavLink>
                 </NavItem>
+                <NavItem>
+                  <NavLink tag={RouterNavLink} to='/filters'>
+                    Filters
+                  </NavLink>
+                </NavItem>
               </Nav>
-              <Nav className="d-none d-md-block" navbar>
+              <Nav className='d-none d-md-block' navbar>
                 {!isAuthenticated && (
                   <NavItem>
                     <Button
-                      id="qsLoginBtn"
-                      color="primary"
-                      className="btn-margin"
-                      onClick={() => loginWithRedirect()}
-                    >
+                      id='qsLoginBtn'
+                      color='primary'
+                      className='btn-margin'
+                      onClick={() => loginWithRedirect()}>
                       Log in
                     </Button>
                   </NavItem>
                 )}
                 {isAuthenticated && (
                   <UncontrolledDropdown nav inNavbar>
-                    <DropdownToggle nav caret id="profileDropDown">
+                    <DropdownToggle nav caret id='profileDropDown'>
                       <img
                         src={user!.picture}
-                        alt="Profile"
-                        className="nav-user-profile rounded-circle"
-                        width="50"
+                        alt='Profile'
+                        className='nav-user-profile rounded-circle'
+                        width='50'
                       />
                     </DropdownToggle>
                     <DropdownMenu>
                       <DropdownItem header>{user!.name}</DropdownItem>
                       <DropdownItem
                         tag={RouterNavLink}
-                        to="/profile"
-                        className="dropdown-profile"
-                      >
-                        <FontAwesomeIcon icon="user" className="mr-3" /> Profile
+                        to='/profile'
+                        className='dropdown-profile'>
+                        <FontAwesomeIcon icon='user' className='mr-3' /> Profile
                       </DropdownItem>
                       <DropdownItem
-                        id="qsLogoutBtn"
-                        onClick={() => this.logoutWithRedirect()}
-                      >
-                        <FontAwesomeIcon icon="power-off" className="mr-3" /> Log
-                        out
+                        id='qsLogoutBtn'
+                        onClick={() => this.logoutWithRedirect()}>
+                        <FontAwesomeIcon icon='power-off' className='mr-3' />{' '}
+                        Log out
                       </DropdownItem>
                     </DropdownMenu>
                   </UncontrolledDropdown>
                 )}
               </Nav>
               {!isAuthenticated && (
-                <Nav className="d-md-none" navbar>
+                <Nav className='d-md-none' navbar>
                   <NavItem>
                     <Button
-                      id="qsLoginBtn"
-                      color="primary"
+                      id='qsLoginBtn'
+                      color='primary'
                       block
-                      onClick={() => loginWithRedirect({})}
-                    >
+                      onClick={() => loginWithRedirect({})}>
                       Log in
                     </Button>
                   </NavItem>
@@ -127,36 +125,30 @@ class NavBar extends Component<NavBarProps, NavBarState> {
               )}
               {isAuthenticated && (
                 <Nav
-                  className="d-md-none justify-content-between"
+                  className='d-md-none justify-content-between'
                   navbar
-                  style={{ minHeight: 170 }}
-                >
+                  style={{ minHeight: 170 }}>
                   <NavItem>
-                    <span className="user-info">
+                    <span className='user-info'>
                       <img
                         src={user!.picture}
-                        alt="Profile"
-                        className="nav-user-profile d-inline-block rounded-circle mr-3"
-                        width="50"
+                        alt='Profile'
+                        className='nav-user-profile d-inline-block rounded-circle mr-3'
+                        width='50'
                       />
-                      <h6 className="d-inline-block">{user!.name}</h6>
+                      <h6 className='d-inline-block'>{user!.name}</h6>
                     </span>
                   </NavItem>
                   <NavItem>
-                    <FontAwesomeIcon icon="user" className="mr-3" />
-                    <RouterNavLink
-                      to="/profile"
-                    >
-                      Profile
-                    </RouterNavLink>
+                    <FontAwesomeIcon icon='user' className='mr-3' />
+                    <RouterNavLink to='/profile'>Profile</RouterNavLink>
                   </NavItem>
                   <NavItem>
-                    <FontAwesomeIcon icon="power-off" className="mr-3" />
+                    <FontAwesomeIcon icon='power-off' className='mr-3' />
                     <RouterNavLink
-                      to="#"
-                      id="qsLogoutBtn"
-                      onClick={() => this.logoutWithRedirect()}
-                    >
+                      to='#'
+                      id='qsLogoutBtn'
+                      onClick={() => this.logoutWithRedirect()}>
                       Log out
                     </RouterNavLink>
                   </NavItem>
@@ -168,6 +160,6 @@ class NavBar extends Component<NavBarProps, NavBarState> {
       </div>
     );
   }
-};
+}
 
 export default withAuth0(NavBar);

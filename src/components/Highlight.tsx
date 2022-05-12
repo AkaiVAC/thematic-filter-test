@@ -1,6 +1,6 @@
-import React, { Component, RefObject } from "react";
-import hljs from "highlight.js";
-import "highlight.js/styles/monokai-sublime.css";
+import React, { Component, RefObject } from 'react';
+import hljs from 'highlight.js';
+import 'highlight.js/styles/monokai-sublime.css';
 
 interface HighlightProps {
   language?: string;
@@ -18,9 +18,9 @@ class Highlight extends Component<HighlightProps, HighlightState> {
   constructor(props: any) {
     super(props);
 
-    this.state = { 
+    this.state = {
       loaded: false,
-      registeredLanguages: {}
+      registeredLanguages: {},
     };
     this.codeNode = React.createRef();
   }
@@ -52,7 +52,7 @@ class Highlight extends Component<HighlightProps, HighlightState> {
   highlight = () => {
     this.codeNode &&
       this.codeNode.current &&
-      hljs.highlightBlock(this.codeNode.current);
+      hljs.highlightElement(this.codeNode.current);
   };
 
   render() {
@@ -64,7 +64,7 @@ class Highlight extends Component<HighlightProps, HighlightState> {
     }
 
     return (
-      <pre className="rounded">
+      <pre className='rounded'>
         <code ref={this.codeNode} className={language}>
           {children}
         </code>
