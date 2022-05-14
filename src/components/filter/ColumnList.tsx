@@ -1,40 +1,31 @@
 import React, { useState } from 'react';
 import { DropdownItem, Tooltip } from 'reactstrap';
+import { useRecoilState } from 'recoil';
 import { v4 as uuidv4 } from 'uuid';
+import { filterList } from '../../stores/filterStore';
 
-const ColumnList = ({
-    column,
-    filterState,
-    setFilterState,
-}: {
-    column: FilterStore.ColumnItem;
-    filterState: FilterStore.State;
-    setFilterState: any;
-}) => {
+import './styles/ColumnList.css';
+
+const ColumnList = ({ column }: { column: FilterStore.ColumnItem }) => {
     const [tooltipState, setTooltipState] = useState(false);
-
-    const { filterList } = filterState;
-
-    const addToFilterList = (filterName: string) => {
-        setFilterState({
-            ...filterState,
-            filterList: [
-                ...filterList,
-                {
-                    id: uuidv4(),
-                    name: filterName,
-                    type: 0,
-                },
-            ],
-        });
-    };
+    const [filters, setFilters] = useRecoilState(filterList);
 
     return (
         <>
             <DropdownItem
                 id={`Tooltip-${column.sampleHeader}`}
                 onMouseEnter={() => setTooltipState(!tooltipState)}
-                onClick={() => addToFilterList(column.sampleHeader)}>
+                onClick={() =>
+                    setFilters([
+                        ...filters,
+                        {
+                            id: uuidv4(),
+                            name: column.sampleHeader,
+                            type: 0,
+                            order: filters.length,
+                        },
+                    ])
+                }>
                 {column.sampleHeader}
             </DropdownItem>
             <Tooltip

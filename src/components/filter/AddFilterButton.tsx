@@ -10,7 +10,7 @@ import { useRecoilState } from 'recoil';
 import { filterColumns } from '../../stores/filterStore';
 import getColumnsUtil from '../../utils/getColumnsUtil';
 
-import './AddFilterButton.css';
+import './styles/AddFilterButton.css';
 
 const AddFilterButton = ({ auth0 }: { auth0: Auth0ContextInterface }) => {
     const [dropdownState, setDropdownState] = useState(false);

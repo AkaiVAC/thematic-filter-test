@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     Button,
     Form,
@@ -8,72 +8,70 @@ import {
     ModalFooter,
     ModalHeader,
 } from 'reactstrap';
-import { atom, useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { v4 as uuidv4 } from 'uuid';
-import filterStore from '../../stores/filterStore';
+import {
+    filterList,
+    editFilterModal,
+    editedFilter,
+} from '../../stores/filterStore';
 
-export const modalAtom = atom({
-    key: 'editFilterModal',
-    default: false,
-});
-
-const EditFilterModal = ({
-    filter,
-}: {
-    filter: FilterStore.FilterListItemType;
-}) => {
-    const [modalState, setModalState] = useRecoilState(modalAtom);
-    const [filterState, setFilterState] = useRecoilState(filterStore);
-
+const EditFilterModal = () => {
     const scoreTypes = ['Average', 'NPS', 'Threshold'];
-    const [scoreState, setScoreState] = useState(0);
+    const filter = useRecoilValue(editedFilter);
+    const [scoreState, setScoreState] = useState(filter.scoreType);
+    const [filters, setFilters] = useRecoilState(filterList);
+    const [modalState, setModalState] = useRecoilState(editFilterModal);
 
-    const changeScoreType = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        setScoreState(e.target.selectedIndex);
-        setFilterState({
-            ...filterState,
-            filterList: [
-                ...filterState.filterList,
-                {
-                    ...filter,
-                    scoreType: scoreState,
-                },
-            ],
-        });
+    const changeScoreType = () => {
+        const updatedFilter = { ...filter, scoreType: scoreState };
+        setFilters(
+            filters.map((row) => (row.id === filter.id ? updatedFilter : row))
+        );
     };
+
+    useEffect(() => {}, [scoreState]);
 
     return (
         <Modal isOpen={modalState}>
             <ModalHeader>Edit Filter</ModalHeader>
-            <ModalBody>
-                <Form>
+            <Form>
+                <ModalBody>
                     <Label>Score Type</Label>
                     <br />
                     <select
                         className='dropdown-toggle btn btn-outline-secondary'
                         title='Select filter type'
-                        onChange={(e) => changeScoreType(e)}>
+                        onChange={(e) => setScoreState(e.target.selectedIndex)}
+                        value={scoreState}>
                         {scoreTypes.map((score: string, index: number) => (
                             <option key={uuidv4()} value={index}>
                                 {score}
                             </option>
                         ))}
                     </select>
-                </Form>
-            </ModalBody>
-            <ModalFooter>
-                <Button
-                    outline
-                    color='secondary'
-                    onClick={() => setModalState(!modalState)}>
-                    Cancel
-                </Button>{' '}
-                <Button
-                    color='primary'
-                    onClick={() => setModalState(!modalState)}>
-                    Save
-                </Button>
-            </ModalFooter>
+                </ModalBody>
+                <ModalFooter>
+                    <Button
+                        outline
+                        color='secondary'
+                        type='reset'
+                        onClick={() => {
+                            setScoreState(filter.scoreType);
+                            setModalState(false);
+                        }}>
+                        Cancel
+                    </Button>
+                    <Button
+                        color='primary'
+                        onClick={() => {
+                            changeScoreType();
+                            setModalState(false);
+                        }}>
+                        Save
+                    </Button>
+                </ModalFooter>
+            </Form>
         </Modal>
     );
 };

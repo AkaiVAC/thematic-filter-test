@@ -19,6 +19,9 @@ const getColumnsUtil = async (
 
         setColumns(response.data.columns as Array<FilterStore.ColumnItem>);
     } catch (error) {
+        alert(
+            'There was an error fetching the column information. Please try again.'
+        );
         throw new Error(`An error has occured:\n ${error}`);
     }
 };
