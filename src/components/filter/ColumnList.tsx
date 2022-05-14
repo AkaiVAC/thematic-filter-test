@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import { DropdownItem, Tooltip } from 'reactstrap';
-import { useRecoilState } from 'recoil';
 import { v4 as uuidv4 } from 'uuid';
-import filterStore from '../../stores/filterStore';
 
-const ColumnItem = ({ column }: { column: FilterStore.ColumnItem }) => {
+const ColumnList = ({
+    column,
+    filterState,
+    setFilterState,
+}: {
+    column: FilterStore.ColumnItem;
+    filterState: FilterStore.State;
+    setFilterState: any;
+}) => {
     const [tooltipState, setTooltipState] = useState(false);
-    const [filterState, setFilterState] = useRecoilState(filterStore);
 
     const { filterList } = filterState;
 
@@ -50,4 +55,4 @@ const ColumnItem = ({ column }: { column: FilterStore.ColumnItem }) => {
     );
 };
 
-export default ColumnItem;
+export default ColumnList;
