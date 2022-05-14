@@ -1,0 +1,22 @@
+.tooltip-item .tooltip {
+    opacity: 1;
+    box-shadow: 0 0 5px 0 rgb(0 0 0 / 20%);
+}
+
+.tooltip-item .tooltip-inner {
+    background-color: #fff;
+    color: black;
+}
+
+.tooltip-item ul {
+    list-style: none;
+    padding-inline: 0.4rem;
+    text-align: left;
+}
+
+.tooltip-item li {
+    width: 10rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

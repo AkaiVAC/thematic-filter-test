@@ -1,53 +1,22 @@
 # Thematic Frontend Task
 
-This project is based off the Auth0 project created for a new project. Details on Auth0 are at the end of this file.
+This app has been developed, keeping in mind, the guidelines set down in the document provided along with the data.
 
-This sample demonstrates:
-- Logging in to Auth0 using Redirect Mode
-- Accessing profile information that has been provided in the ID token
-- Gated content. The `/profile` route is not accessible without having first logged in
-- Calling the task test backend to get information on the current-user
+The primary objectives of this application is to achieve the following:
 
-## Project setup
+-   Build a Filter configuration form that allows a user to create filters using column data.
+-   Allow users to create, configure and delete filters based on the columns available in
+    the data.
+-   Allow users to rearrange the filters so they show up in a specific order using
+    drag and drop functionality.
 
-```bash
-npm install
-```
+The current solution tries to achieve the above goals in the best possible way within the available timeframe.
 
-### Compiles and hot-reloads for development
+## Base App Observations
 
-```bash
-npm run dev
-```
+1. The app is quite old and the dependencies were not up-to-date
+2. The data received from the API may be better defined to match the feature requirements.
 
-## Deployment
+## Scope Reduction
 
-### Compiles and minifies for production
-
-```bash
-npm run build
-```
-
-### Run your tests
-
-```bash
-npm run test
-```
-
-### Lints and fixes files
-
-```bash
-npm run lint
-```
-
-## What is Auth0?
-
-Auth0 helps you to:
-
-- Add authentication with [multiple authentication sources](https://docs.auth0.com/identityproviders), either social like **Google, Facebook, Microsoft Account, LinkedIn, GitHub, Twitter, Box, Salesforce, among others**, or enterprise identity systems like **Windows Azure AD, Google Apps, Active Directory, ADFS or any SAML Identity Provider**.
-- Add authentication through more traditional **[username/password databases](https://docs.auth0.com/mysql-connection-tutorial)**.
-- Add support for **[linking different user accounts](https://docs.auth0.com/link-accounts)** with the same user.
-- Support for generating signed [Json Web Tokens](https://docs.auth0.com/jwt) to call your APIs and **flow the user identity** securely.
-- Analytics of how, when and where users are logging in.
-- Pull data from other sources and add it to the user profile, through [JavaScript rules](https://docs.auth0.com/rules).
-
+Unit testing was left out due to scope and time constraints.

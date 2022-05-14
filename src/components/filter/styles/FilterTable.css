@@ -1,0 +1,46 @@
+#filter-table {
+    margin: 2rem auto;
+    min-height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 10%);
+    border: none;
+}
+
+#filter-table > .card-body,
+#filter-table > .card-footer {
+    width: 100%;
+}
+
+#filter-table > .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#filter-list {
+    flex-grow: 1;
+    max-height: 30vh;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    overflow-y: auto;
+}
+
+#filter-list > span {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#card-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#save {
+    margin-left: 0.5rem;
+}

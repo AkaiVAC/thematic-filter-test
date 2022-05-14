@@ -1,0 +1,14 @@
+#add-filter-btn {
+    margin-top: 1rem;
+    width: max-content;
+    cursor: pointer;
+}
+
+#add-filter-btn .form-control {
+    font-weight: bold;
+}
+
+#add-filter-btn .dropdown-menu {
+    max-height: 50vh;
+    overflow: auto;
+}

@@ -1,147 +1,35 @@
 .next-steps .fa-link {
-  margin-right: 5px;
+    margin-right: 5px;
 }
 
 /* Fix for use only flexbox in content area */
 .next-steps .row {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .next-steps .col-md-5 {
-  margin-bottom: 3rem;
+    margin-bottom: 3rem;
 }
 
 @media (max-width: 768px) {
-  .next-steps .col-md-5 {
-    margin-bottom: 0;
-  }
+    .next-steps .col-md-5 {
+        margin-bottom: 0;
+    }
 }
 
 .spinner {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  height: 100vh;
-  width: 100vw;
-  background-color: white;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .result-block-container .result-block {
-  opacity: 1;
-}
-
-#filter-table {
-  margin: 2rem auto;
-  min-height: 30vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 10%);
-  border: none;
-}
-
-#filter-table > .card-body {
-  width: 100%;
-}
-
-#add-filter-btn {
-  margin-top: 1rem;
-  width: max-content;
-  cursor: pointer;
-}
-
-#add-filter-btn .form-control {
-  font-weight: bold;
-}
-
-#add-filter-btn .dropdown-menu {
-  max-height: 50vh;
-  overflow: auto;
-}
-
-#card-actions {
-  display: flex;
-  justify-content: flex-end;
-}
-
-#save {
-  margin-left: 0.5rem;
-}
-
-#filter-list {
-  background-color: whitesmoke;
-  border: none;
-  border-radius: 5px;
-  padding: 0.5rem;
-}
-
-.filter-list-item {
-  margin-block: 0.5rem;
-}
-
-.filter-list-item:first-of-type,
-.filter-list-item:last-of-type {
-  margin-block: 0rem;
-}
-
-.filter-list-item > .card-body {
-  padding: 0.5rem 1rem;
-  box-shadow: 0 0px 2px 0 rgb(0 0 0 / 20%);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.7rem;
-}
-
-.filter-list-item .form-label {
-  margin-bottom: unset;
-}
-
-.filter-list-item .filterForm {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.filter-list-item .filterActions {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.drag-handle {
-  cursor: grab;
-}
-
-.filter-type {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-}
-
-.tooltip-item .tooltip {
-  opacity: 1;
-  box-shadow: 0 0 5px 0 rgb(0 0 0 / 20%);
-}
-
-.tooltip-item .tooltip-inner {
-  background-color: #fff;
-  color: black;
-}
-
-.tooltip-item ul {
-  list-style: none;
-  padding-inline: 0.4rem;
-  text-align: left;
-}
-
-.tooltip-item li {
-  width: 10rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    opacity: 1;
 }
