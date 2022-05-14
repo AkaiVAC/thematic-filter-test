@@ -21,10 +21,19 @@
 
 #filter-list {
     flex-grow: 1;
+    max-height: 30vh;
     padding: 0.5rem;
     border: none;
     border-radius: 5px;
     background-color: whitesmoke;
+    overflow-y: auto;
+}
+
+#filter-list > span {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #card-actions {

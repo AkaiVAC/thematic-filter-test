@@ -1,5 +1,6 @@
 .filter-list-item {
     margin-block: 0.5rem;
+    cursor: grab;
 }
 
 .filter-list-item:first-of-type {
@@ -33,10 +34,6 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-}
-
-.drag-handle {
-    cursor: grab;
 }
 
 .filter-type {
